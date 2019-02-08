@@ -17,6 +17,14 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     {
         super.viewDidLoad()
         createBtn.layer.cornerRadius = 10.0
+        
+        let backBarButton = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButton
+        
+        if User.shared.parties.count == 0
+        {
+            partiesTableView.isHidden = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -37,9 +45,14 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 100.0
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        
+        self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
     }
     
     //MARK: -Actions

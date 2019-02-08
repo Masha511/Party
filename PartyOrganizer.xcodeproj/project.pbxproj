@@ -18,6 +18,7 @@
 		5B09931D220E2E8F00901F90 /* Party.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09931C220E2E8F00901F90 /* Party.swift */; };
 		5B09931F220E306700901F90 /* PartyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09931E220E306700901F90 /* PartyCell.swift */; };
 		5B099321220E311100901F90 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099320220E311100901F90 /* User.swift */; };
+		5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099323220E3DE600901F90 /* PartyEditorVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		5B09931C220E2E8F00901F90 /* Party.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Party.swift; sourceTree = "<group>"; };
 		5B09931E220E306700901F90 /* PartyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCell.swift; sourceTree = "<group>"; };
 		5B099320220E311100901F90 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5B099323220E3DE600901F90 /* PartyEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyEditorVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		5B09931A220E2C3D00901F90 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B099322220E3DC400901F90 /* PartyVC */,
 				5B09930E220E0BBE00901F90 /* PartiesVC */,
 			);
 			path = ViewControllers;
@@ -112,6 +115,14 @@
 				5B099320220E311100901F90 /* User.swift */,
 			);
 			path = ObjectModels;
+			sourceTree = "<group>";
+		};
+		5B099322220E3DC400901F90 /* PartyVC */ = {
+			isa = PBXGroup;
+			children = (
+				5B099323220E3DE600901F90 /* PartyEditorVC.swift */,
+			);
+			path = PartyVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +202,7 @@
 				5B09931F220E306700901F90 /* PartyCell.swift in Sources */,
 				5B099321220E311100901F90 /* User.swift in Sources */,
 				5B0992FF220E062400901F90 /* ViewController.swift in Sources */,
+				5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */,
 				5B09931D220E2E8F00901F90 /* Party.swift in Sources */,
 				5B0992FD220E062400901F90 /* AppDelegate.swift in Sources */,
 			);
