@@ -19,6 +19,7 @@
 		5B09931F220E306700901F90 /* PartyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B09931E220E306700901F90 /* PartyCell.swift */; };
 		5B099321220E311100901F90 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099320220E311100901F90 /* User.swift */; };
 		5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099323220E3DE600901F90 /* PartyEditorVC.swift */; };
+		5B099329220E4DB500901F90 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099328220E4DB500901F90 /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5B09931E220E306700901F90 /* PartyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCell.swift; sourceTree = "<group>"; };
 		5B099320220E311100901F90 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B099323220E3DE600901F90 /* PartyEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyEditorVC.swift; sourceTree = "<group>"; };
+		5B099328220E4DB500901F90 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		5B0992FB220E062400901F90 /* PartyOrganizer */ = {
 			isa = PBXGroup;
 			children = (
+				5B099325220E4D9300901F90 /* Other */,
 				5B099311220E0E4D00901F90 /* FontResources */,
 				5B09931B220E2E6F00901F90 /* ObjectModels */,
 				5B09931A220E2C3D00901F90 /* ViewControllers */,
@@ -123,6 +126,14 @@
 				5B099323220E3DE600901F90 /* PartyEditorVC.swift */,
 			);
 			path = PartyVC;
+			sourceTree = "<group>";
+		};
+		5B099325220E4D9300901F90 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5B099328220E4DB500901F90 /* Date+.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */,
 				5B09931D220E2E8F00901F90 /* Party.swift in Sources */,
 				5B0992FD220E062400901F90 /* AppDelegate.swift in Sources */,
+				5B099329220E4DB500901F90 /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

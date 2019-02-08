@@ -20,16 +20,20 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         let backBarButton = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backBarButton
-        
-        if User.shared.parties.count == 0
-        {
-            partiesTableView.isHidden = true
-        }
     }
     
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        if User.shared.parties.count == 0
+        {
+            partiesTableView.isHidden = true
+        }
+        else
+        {
+            partiesTableView.isHidden = false
+            self.partiesTableView.reloadData()
+        }
     }
     
     //MARK: -Table View Data Source & Delegate
@@ -47,7 +51,7 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 100.0
+        return 150.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

@@ -20,7 +20,7 @@ class PartyCell: UITableViewCell
     
     func set(party: Party)
     {
-        self.titleLbl.text = party.name + "\n" + party.desc
+        self.titleLbl.text = party.name + "\n" + party.date.getString(withTime: false)
         self.detailLbl.text = party.desc
     }
 

@@ -13,11 +13,20 @@ class User: NSObject, NSCoding
     static var shared: User
     {
         if let data = UserDefaults.standard.object(forKey: "savedUser") as? Data,
-        let user = try? NSKeyedUnarchiver.unarchivedObject(ofClass: User.self, from: data)
+            let user = try? NSKeyedUnarchiver.unarchiveObject(with: data) as? User
         {
             return user ?? User()
         }
         return User()
+    }
+    
+    var currentPartyIndex: Int?
+    
+    var currentParty: Party?
+    {
+        guard let index = currentPartyIndex else {return nil}
+        
+        return self.parties[index]
     }
     
     var parties = [Party]()
@@ -35,8 +44,8 @@ class User: NSObject, NSCoding
     
     func save()
     {
-        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: true) else {return}
-        UserDefaults.standard.set(data, forKey: "savedData")
+        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: self) else {return}
+        UserDefaults.standard.set(data, forKey: "savedUser")
         UserDefaults.standard.synchronize()
     }
     
