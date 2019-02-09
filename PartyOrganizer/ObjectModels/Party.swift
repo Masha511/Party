@@ -13,6 +13,7 @@ class Party: NSObject, NSCoding
     var name = ""
     var date: Date!
     var desc = ""
+    var members = [Member]()
     
     convenience init(name: String, description: String, date: Date)
     {
@@ -20,6 +21,14 @@ class Party: NSObject, NSCoding
         self.name = name
         self.desc = description
         self.date = date
+    }
+    
+    func add(member: Member)
+    {
+        if !self.members.contains(member)
+        {
+            self.members.append(member)
+        }
     }
     
     override init()

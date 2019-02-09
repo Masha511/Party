@@ -20,6 +20,9 @@
 		5B099321220E311100901F90 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099320220E311100901F90 /* User.swift */; };
 		5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099323220E3DE600901F90 /* PartyEditorVC.swift */; };
 		5B099329220E4DB500901F90 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B099328220E4DB500901F90 /* Date+.swift */; };
+		5BC4E53D220EC58A0085E21E /* PartyDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E53C220EC58A0085E21E /* PartyDetailCell.swift */; };
+		5BC4E53F220ECAA90085E21E /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E53E220ECAA90085E21E /* Member.swift */; };
+		5BC4E543220ED3720085E21E /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E542220ED3720085E21E /* MembersVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		5B099320220E311100901F90 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B099323220E3DE600901F90 /* PartyEditorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyEditorVC.swift; sourceTree = "<group>"; };
 		5B099328220E4DB500901F90 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		5BC4E53C220EC58A0085E21E /* PartyDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailCell.swift; sourceTree = "<group>"; };
+		5BC4E53E220ECAA90085E21E /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		5BC4E542220ED3720085E21E /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +111,8 @@
 		5B09931A220E2C3D00901F90 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B099322220E3DC400901F90 /* PartyVC */,
-				5B09930E220E0BBE00901F90 /* PartiesVC */,
+				5BC4E541220ED3470085E21E /* Parties */,
+				5BC4E540220ED33B0085E21E /* Members */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -116,6 +122,7 @@
 			children = (
 				5B09931C220E2E8F00901F90 /* Party.swift */,
 				5B099320220E311100901F90 /* User.swift */,
+				5BC4E53E220ECAA90085E21E /* Member.swift */,
 			);
 			path = ObjectModels;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5B099323220E3DE600901F90 /* PartyEditorVC.swift */,
+				5BC4E53C220EC58A0085E21E /* PartyDetailCell.swift */,
 			);
 			path = PartyVC;
 			sourceTree = "<group>";
@@ -134,6 +142,23 @@
 				5B099328220E4DB500901F90 /* Date+.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		5BC4E540220ED33B0085E21E /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4E542220ED3720085E21E /* MembersVC.swift */,
+			);
+			path = Members;
+			sourceTree = "<group>";
+		};
+		5BC4E541220ED3470085E21E /* Parties */ = {
+			isa = PBXGroup;
+			children = (
+				5B09930E220E0BBE00901F90 /* PartiesVC */,
+				5B099322220E3DC400901F90 /* PartyVC */,
+			);
+			path = Parties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC4E53D220EC58A0085E21E /* PartyDetailCell.swift in Sources */,
 				5B099319220E26E200901F90 /* PartiesVC.swift in Sources */,
 				5B09931F220E306700901F90 /* PartyCell.swift in Sources */,
 				5B099321220E311100901F90 /* User.swift in Sources */,
@@ -216,7 +242,9 @@
 				5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */,
 				5B09931D220E2E8F00901F90 /* Party.swift in Sources */,
 				5B0992FD220E062400901F90 /* AppDelegate.swift in Sources */,
+				5BC4E543220ED3720085E21E /* MembersVC.swift in Sources */,
 				5B099329220E4DB500901F90 /* Date+.swift in Sources */,
+				5BC4E53F220ECAA90085E21E /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
