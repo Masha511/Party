@@ -56,6 +56,7 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        User.shared.currentPartyIndex = indexPath.row
         self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
     }
     
@@ -71,6 +72,7 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     //MARK: -Actions
     @IBAction func addParty(_ sender: Any)
     {
+        User.shared.currentPartyIndex = nil
         self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
     }
     

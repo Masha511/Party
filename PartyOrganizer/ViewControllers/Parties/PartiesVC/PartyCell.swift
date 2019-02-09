@@ -10,8 +10,6 @@ import UIKit
 
 class PartyCell: UITableViewCell
 {
-    @IBOutlet weak var detailLbl: UILabel!
-    @IBOutlet weak var titleLbl: UILabel!
     
     override func awakeFromNib()
     {
@@ -20,8 +18,8 @@ class PartyCell: UITableViewCell
     
     func set(party: Party)
     {
-        self.titleLbl.text = party.name + "\n" + party.date.getString(withTime: false)
-        self.detailLbl.text = party.desc
+        self.textLabel?.text = party.name + "\n" + party.date.getString(withTime: false)
+        self.detailTextLabel?.text = party.desc
     }
 
     override func setSelected(_ selected: Bool, animated: Bool)

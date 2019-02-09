@@ -8,12 +8,10 @@
 
 import UIKit
 
-class PartyDetailCell: UITableViewCell
+class PartyDetailCell: UITableViewCell, UITextFieldDelegate
 {
-    
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        // Initialization code
     }
 }

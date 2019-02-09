@@ -21,11 +21,25 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         descriptionTextView.delegate = self
+        
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButton
     }
     
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        prepareScreen()
+    }
+    
+    func prepareScreen()
+    {
+        guard let party = User.shared.currentParty else {return}
     }
     
     //MARK: -TextView Delegate
