@@ -32,6 +32,7 @@
 		5BC4E552220F37BA0085E21E /* ProfileAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E551220F37BA0085E21E /* ProfileAboutCell.swift */; };
 		5BC4E554220F37F60085E21E /* ProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E553220F37F60085E21E /* ProfileFooterView.swift */; };
 		5BC4E558220F54340085E21E /* AddToPartyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E557220F54340085E21E /* AddToPartyVC.swift */; };
+		5BC4E55A220F55F30085E21E /* PartyCompactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E559220F55F30085E21E /* PartyCompactCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		5BC4E551220F37BA0085E21E /* ProfileAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutCell.swift; sourceTree = "<group>"; };
 		5BC4E553220F37F60085E21E /* ProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooterView.swift; sourceTree = "<group>"; };
 		5BC4E557220F54340085E21E /* AddToPartyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToPartyVC.swift; sourceTree = "<group>"; };
+		5BC4E559220F55F30085E21E /* PartyCompactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCompactCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,9 +169,8 @@
 		5BC4E540220ED33B0085E21E /* Members */ = {
 			isa = PBXGroup;
 			children = (
+				5BC4E55B220F591A0085E21E /* MembersVC */,
 				5BC4E556220F540E0085E21E /* AddToParty */,
-				5BC4E542220ED3720085E21E /* MembersVC.swift */,
-				5BC4E544220ED62C0085E21E /* MemberCell.swift */,
 				5BC4E54C220F339B0085E21E /* Profile */,
 			);
 			path = Members;
@@ -208,8 +209,18 @@
 			isa = PBXGroup;
 			children = (
 				5BC4E557220F54340085E21E /* AddToPartyVC.swift */,
+				5BC4E559220F55F30085E21E /* PartyCompactCell.swift */,
 			);
 			path = AddToParty;
+			sourceTree = "<group>";
+		};
+		5BC4E55B220F591A0085E21E /* MembersVC */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4E544220ED62C0085E21E /* MemberCell.swift */,
+				5BC4E542220ED3720085E21E /* MembersVC.swift */,
+			);
+			path = MembersVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				5BC4E547220F08B60085E21E /* String+.swift in Sources */,
 				5B099329220E4DB500901F90 /* Date+.swift in Sources */,
 				5BC4E53F220ECAA90085E21E /* Member.swift in Sources */,
+				5BC4E55A220F55F30085E21E /* PartyCompactCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

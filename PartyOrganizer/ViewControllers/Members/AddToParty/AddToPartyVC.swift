@@ -10,10 +10,25 @@ import UIKit
 
 class AddToPartyVC: UITableViewController
 {
-
+    var selectedParties = [Party]()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    private var member: Member!
+    func present(for member: Member)
+    {
+        self.member = member
+        self.navigationItem.title = member.name
+        self.selectedParties = User.shared.parties.compactMap({ (party) -> Party? in
+            if party.members.contains(member)
+            {
+                return party
+            }
+            return nil
+        })
     }
 
     // MARK: - Table view data source
@@ -24,36 +39,44 @@ class AddToPartyVC: UITableViewController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 0
+        return User.shared.parties.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PartyCompactCell", for: indexPath) as! PartyCompactCell
+        let party = User.shared.parties[indexPath.row]
+        cell.isPartySelected = self.selectedParties.contains(party)
+        cell.set(name: party.name)
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+    {
+        return false
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if let cell = tableView.cellForRow(at: indexPath) as? PartyCompactCell
+        {
+            let party = User.shared.parties[indexPath.row]
+            
+            cell.isPartySelected = !cell.isPartySelected
+            if cell.isPartySelected
+            {
+                self.selectedParties.append(party)
+                party.add(member: self.member)
+            }
+            else
+            {
+                if let index = self.selectedParties.index(of: party)
+                {
+                    self.selectedParties.remove(at: index)
+                    party.remove(member: member)
+                }
+            }
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
     }
-    */
 }

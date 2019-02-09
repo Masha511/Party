@@ -218,6 +218,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
 
     @IBAction func saveParty(_ sender: Any)
     {
+        //TODO: Alert for empty fields
         if let index = self.currentPartyIndex
         {
             User.shared.parties[index] = party

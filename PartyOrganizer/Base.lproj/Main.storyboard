@@ -368,23 +368,28 @@ Create some!</string>
                         </connections>
                     </collectionView>
                     <connections>
-                        <segue destination="lTl-Pz-6fe" kind="show" id="Jyl-uh-1XH"/>
+                        <segue destination="lTl-Pz-6fe" kind="show" identifier="AddToPartySegue" id="Jyl-uh-1XH"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igF-Mp-3kU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3508" y="589.65517241379314"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add To PartyVC-->
         <scene sceneID="Vwp-X2-xxS">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="lTl-Pz-6fe" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mUv-Sd-b5t">
+                <tableViewController storyboardIdentifier="AddToPartyVC" hidesBottomBarWhenPushed="YES" id="lTl-Pz-6fe" customClass="AddToPartyVC" customModule="PartyOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mUv-Sd-b5t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="qyi-ih-r7C">
+                            <rect key="frame" x="0.0" y="72" width="375" height="19"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="xU1-II-Pt1" style="IBUITableViewCellStyleDefault" id="CmY-Ja-VCD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyCompactCell" textLabel="xU1-II-Pt1" style="IBUITableViewCellStyleDefault" id="CmY-Ja-VCD" customClass="PartyCompactCell" customModule="PartyOrganizer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CmY-Ja-VCD" id="tLO-p7-lPx">
@@ -394,7 +399,7 @@ Create some!</string>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xU1-II-Pt1">
                                             <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -410,7 +415,7 @@ Create some!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mh6-0G-Pha" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4257" y="590"/>
+            <point key="canvasLocation" x="4256.8000000000002" y="589.65517241379314"/>
         </scene>
         <!--Members-->
         <scene sceneID="fIY-kF-Qmr">

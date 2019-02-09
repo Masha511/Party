@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout
+class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, ProfileFooterDelegate
 {
     override func viewDidLoad()
     {
@@ -42,6 +42,15 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let addToPartyVC = segue.destination as? AddToPartyVC
+        {
+            addToPartyVC.present(for: self.member)
+        }
+    }
+    
+    //MARK: -Collection View
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         return 5
@@ -103,11 +112,19 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView
     {
         let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileFooterView", for: indexPath) as! ProfileFooterView
+        footerView.delegate = self
         return footerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize
     {
         return CGSize(width: collectionView.frame.width, height: 50.0)
+    }
+    
+    //MARK: -Footer Delegate
+    
+    func addToParty()
+    {
+        self.performSegue(withIdentifier: "AddToPartySegue", sender: nil)
     }
 }

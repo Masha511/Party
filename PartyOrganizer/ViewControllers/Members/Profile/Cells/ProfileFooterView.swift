@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol ProfileFooterDelegate: class
+{
+    func addToParty()
+}
+
 class ProfileFooterView: UICollectionReusableView
 {
     @IBOutlet weak var addBtn: UIButton!
+    
+    weak var delegate: ProfileFooterDelegate?
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -20,6 +28,6 @@ class ProfileFooterView: UICollectionReusableView
     
     @IBAction func addToParty(_ sender: UIButton)
     {
-        print("Touched")
+        delegate?.addToParty()
     }
 }

@@ -116,15 +116,6 @@ class MembersVC: UITableViewController
         
         return cell
     }
-//
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-//    {
-//        if isPreviewMembers
-//        {
-//            let isSelected = isMemberSelected(members[indexPath.row])
-//            cell.isSelected = isSelected
-//        }
-//    }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {

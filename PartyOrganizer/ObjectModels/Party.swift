@@ -31,6 +31,14 @@ class Party: NSObject, NSCoding
         }
     }
     
+    func remove(member: Member)
+    {
+        if let index = members.index(of: member)
+        {
+            self.members.remove(at: index)
+        }
+    }
+    
     override init()
     {
         super.init()
