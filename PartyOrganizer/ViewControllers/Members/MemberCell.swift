@@ -13,6 +13,21 @@ class MemberCell: UITableViewCell
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    var isMemberSelected = false
+    {
+        didSet
+        {
+            if isMemberSelected
+            {
+                self.accessoryType = .checkmark
+            }
+            else
+            {
+                self.accessoryType = .none
+            }
+        }
+    }
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -46,23 +61,5 @@ class MemberCell: UITableViewCell
         {
             self.accessoryType = .disclosureIndicator
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
-        super.setSelected(selected, animated: animated)
-        if forSelection
-        {
-            if selected
-            {
-                self.accessoryType = .checkmark
-            }
-            else
-            {
-                self.accessoryType = .none
-            }
-            setNeedsDisplay()
-            setNeedsLayout()
-        }
-    }
+    } 
 }

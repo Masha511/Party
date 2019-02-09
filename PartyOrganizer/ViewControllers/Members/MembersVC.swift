@@ -108,23 +108,23 @@ class MembersVC: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberCell
         let member = members[indexPath.row]
         cell.set(member: member, forSelection: isPreviewMembers)
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
+        
         if isPreviewMembers
         {
-            if isMemberSelected(members[indexPath.row])
-            {
-                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-            }
-            else
-            {
-                tableView.deselectRow(at: indexPath, animated: false)
-            }
+            cell.isMemberSelected = isMemberSelected(member)
         }
+        
+        return cell
     }
+//
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+//    {
+//        if isPreviewMembers
+//        {
+//            let isSelected = isMemberSelected(members[indexPath.row])
+//            cell.isSelected = isSelected
+//        }
+//    }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
@@ -140,22 +140,26 @@ class MembersVC: UITableViewController
     {
         if isPreviewMembers
         {
-            self.selectedMembers.append(members[indexPath.row])
+            if let cell = tableView.cellForRow(at: indexPath) as? MemberCell
+            {
+                cell.isMemberSelected = !cell.isMemberSelected
+                if cell.isMemberSelected
+                {
+                    self.selectedMembers.append(members[indexPath.row])
+                }
+                else
+                {
+                    if let index = self.selectedMembers.index(of: members[indexPath.row])
+                    {
+                        self.selectedMembers.remove(at: index)
+                    }
+                }
+                tableView.deselectRow(at: indexPath, animated: false)
+            }
         }
         else
         {
             self.performSegue(withIdentifier: "ProfileSegue", sender: tableView.cellForRow(at: indexPath))
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
-    {
-        if isPreviewMembers
-        {
-            if let index = self.selectedMembers.index(of: members[indexPath.row])
-            {
-                self.selectedMembers.remove(at: index)
-            }
         }
     }
 }

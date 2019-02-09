@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Show parties by date
+
 class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var partiesTableView: UITableView!

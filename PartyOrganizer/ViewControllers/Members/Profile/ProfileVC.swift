@@ -16,6 +16,9 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Call", style: .plain, target: self, action: #selector(call))
         self.navigationItem.title = "Profile"
+        
+        let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backBarButton
     }
     
     private var member: Member!
