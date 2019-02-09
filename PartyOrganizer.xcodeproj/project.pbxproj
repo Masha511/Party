@@ -27,6 +27,10 @@
 		5BC4E547220F08B60085E21E /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E546220F08B60085E21E /* String+.swift */; };
 		5BC4E549220F0EFB0085E21E /* PartyMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E548220F0EFB0085E21E /* PartyMemberCell.swift */; };
 		5BC4E54B220F1C690085E21E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E54A220F1C690085E21E /* ProfileVC.swift */; };
+		5BC4E54E220F33CC0085E21E /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E54D220F33CC0085E21E /* ProfileImageCell.swift */; };
+		5BC4E550220F37AC0085E21E /* ProfileDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E54F220F37AC0085E21E /* ProfileDetailCell.swift */; };
+		5BC4E552220F37BA0085E21E /* ProfileAboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E551220F37BA0085E21E /* ProfileAboutCell.swift */; };
+		5BC4E554220F37F60085E21E /* ProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E553220F37F60085E21E /* ProfileFooterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		5BC4E546220F08B60085E21E /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		5BC4E548220F0EFB0085E21E /* PartyMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMemberCell.swift; sourceTree = "<group>"; };
 		5BC4E54A220F1C690085E21E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		5BC4E54D220F33CC0085E21E /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		5BC4E54F220F37AC0085E21E /* ProfileDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailCell.swift; sourceTree = "<group>"; };
+		5BC4E551220F37BA0085E21E /* ProfileAboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAboutCell.swift; sourceTree = "<group>"; };
+		5BC4E553220F37F60085E21E /* ProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFooterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,9 +165,9 @@
 		5BC4E540220ED33B0085E21E /* Members */ = {
 			isa = PBXGroup;
 			children = (
+				5BC4E54C220F339B0085E21E /* Profile */,
 				5BC4E542220ED3720085E21E /* MembersVC.swift */,
 				5BC4E544220ED62C0085E21E /* MemberCell.swift */,
-				5BC4E54A220F1C690085E21E /* ProfileVC.swift */,
 			);
 			path = Members;
 			sourceTree = "<group>";
@@ -171,6 +179,18 @@
 				5B099322220E3DC400901F90 /* PartyVC */,
 			);
 			path = Parties;
+			sourceTree = "<group>";
+		};
+		5BC4E54C220F339B0085E21E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4E54A220F1C690085E21E /* ProfileVC.swift */,
+				5BC4E54D220F33CC0085E21E /* ProfileImageCell.swift */,
+				5BC4E54F220F37AC0085E21E /* ProfileDetailCell.swift */,
+				5BC4E551220F37BA0085E21E /* ProfileAboutCell.swift */,
+				5BC4E553220F37F60085E21E /* ProfileFooterView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +270,11 @@
 				5BC4E53D220EC58A0085E21E /* PartyDetailCell.swift in Sources */,
 				5B099319220E26E200901F90 /* PartiesVC.swift in Sources */,
 				5B09931F220E306700901F90 /* PartyCell.swift in Sources */,
+				5BC4E550220F37AC0085E21E /* ProfileDetailCell.swift in Sources */,
+				5BC4E554220F37F60085E21E /* ProfileFooterView.swift in Sources */,
 				5B099321220E311100901F90 /* User.swift in Sources */,
+				5BC4E54E220F33CC0085E21E /* ProfileImageCell.swift in Sources */,
+				5BC4E552220F37BA0085E21E /* ProfileAboutCell.swift in Sources */,
 				5B0992FF220E062400901F90 /* ViewController.swift in Sources */,
 				5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */,
 				5BC4E549220F0EFB0085E21E /* PartyMemberCell.swift in Sources */,

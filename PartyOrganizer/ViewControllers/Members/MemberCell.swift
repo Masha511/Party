@@ -10,21 +10,6 @@ import UIKit
 
 class MemberCell: UITableViewCell
 {
-    override var isSelected: Bool
-    {
-        didSet
-        {
-            if isSelected
-            {
-                self.accessoryType = .checkmark
-            }
-            else
-            {
-                self.accessoryType = .none
-            }
-        }
-    }
-    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -41,8 +26,10 @@ class MemberCell: UITableViewCell
         self.profileImageView.layer.masksToBounds = true
     }
     
+    private var forSelection = false
     func set(member: Member, forSelection: Bool)
     {
+        self.forSelection = forSelection
         self.nameLbl.text = member.name
         member.loadImage { (image) in
             DispatchQueue.main.async
@@ -64,15 +51,18 @@ class MemberCell: UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
-        if selected
+        if forSelection
         {
-            self.accessoryType = .checkmark
+            if selected
+            {
+                self.accessoryType = .checkmark
+            }
+            else
+            {
+                self.accessoryType = .none
+            }
+            setNeedsDisplay()
+            setNeedsLayout()
         }
-        else
-        {
-            self.accessoryType = .none
-        }
-        setNeedsDisplay()
-        setNeedsLayout()
     }
 }

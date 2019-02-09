@@ -108,9 +108,14 @@ class MembersVC: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberCell
         let member = members[indexPath.row]
         cell.set(member: member, forSelection: isPreviewMembers)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    {
         if isPreviewMembers
         {
-            if isMemberSelected(member)
+            if isMemberSelected(members[indexPath.row])
             {
                 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             }
@@ -119,7 +124,6 @@ class MembersVC: UITableViewController
                 tableView.deselectRow(at: indexPath, animated: false)
             }
         }
-        return cell
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
@@ -140,7 +144,7 @@ class MembersVC: UITableViewController
         }
         else
         {
-            //TODO: view profile
+            self.performSegue(withIdentifier: "ProfileSegue", sender: tableView.cellForRow(at: indexPath))
         }
     }
     

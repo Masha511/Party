@@ -187,6 +187,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         {
             party.members.remove(at: indexPath.row - 3)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .none)
         }
     }
     
