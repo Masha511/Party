@@ -13,6 +13,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var detailsTableView: UITableView!
+    @IBOutlet weak var membersTableView: UITableView!
     
     var party: Party!
     
@@ -36,8 +37,16 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        self.descriptionTextView.text = self.party?.desc ?? ""
+        if let party = self.party
+        {
+            self.descriptionTextView.text = party.desc.isEmpty ? "No description available" : party.desc
+        }
+        else
+        {
+            self.descriptionTextView.text = ""
+        }
         self.detailsTableView.reloadData()
+        self.membersTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -131,11 +140,22 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     //MARK: -TableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3 + (party?.members.count ?? 0)
+        if tableView == membersTableView
+        {
+            return party?.members.count ?? 0
+        }
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
+        if tableView == membersTableView
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMemberCell") as! PartyMemberCell
+            cell.set(name: party!.members[indexPath.row].name)
+            return cell
+        }
+        
         if indexPath.row == 0
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PartyNameCell") as! PartyDetailCell
@@ -150,7 +170,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
             cell.delegate = self
             return cell
         }
-        else if indexPath.row == 2
+        else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMembersCell") as! PartyDetailCell
             if let party = self.party
@@ -163,12 +183,6 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
             }
             return cell
         }
-        else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMemberCell") as! PartyMemberCell
-            cell.set(name: party!.members[indexPath.row - 3].name)
-            return cell
-        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -178,21 +192,22 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
-        return indexPath.row > 2
+        return tableView == membersTableView
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
         if editingStyle == .delete
         {
-            party.members.remove(at: indexPath.row - 3)
+            party.members.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .none)
+            detailsTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .none)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        guard tableView == detailsTableView else {return}
         if indexPath.row == 2
         {
             self.performSegue(withIdentifier: "PartyMembersPreviewSegue", sender: nil)

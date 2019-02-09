@@ -10,6 +10,10 @@ import UIKit
 
 class PartyCell: UITableViewCell
 {
+    @IBOutlet weak var partNameLbl: UILabel!
+    @IBOutlet weak var partyDateLbl: UILabel!
+    @IBOutlet weak var partyDescriptionLbl: UILabel!
+    
     override func awakeFromNib()
     {
         super.awakeFromNib()
@@ -17,12 +21,8 @@ class PartyCell: UITableViewCell
     
     func set(party: Party)
     {
-        self.textLabel?.text = party.name + "\n" + party.date.getString(withTime: false)
-        self.detailTextLabel?.text = party.desc
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool)
-    {
-        super.setSelected(selected, animated: animated)
+        partNameLbl.text = party.name
+        partyDateLbl.text = party.date.getString(withTime: false)
+        partyDescriptionLbl.text = party.desc.isEmpty ? "No description available" : party.desc
     }
 }

@@ -25,6 +25,11 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        refreshView()
+    }
+    
+    func refreshView()
+    {
         if User.shared.parties.count == 0
         {
             partiesTableView.isHidden = true
@@ -81,6 +86,7 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         {
             User.shared.parties.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            refreshView()
         }
     }
     
@@ -89,6 +95,4 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     {
         self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
     }
-    
-    
 }
