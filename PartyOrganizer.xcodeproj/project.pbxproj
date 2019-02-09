@@ -24,6 +24,8 @@
 		5BC4E53F220ECAA90085E21E /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E53E220ECAA90085E21E /* Member.swift */; };
 		5BC4E543220ED3720085E21E /* MembersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E542220ED3720085E21E /* MembersVC.swift */; };
 		5BC4E545220ED62C0085E21E /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E544220ED62C0085E21E /* MemberCell.swift */; };
+		5BC4E547220F08B60085E21E /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E546220F08B60085E21E /* String+.swift */; };
+		5BC4E549220F0EFB0085E21E /* PartyMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4E548220F0EFB0085E21E /* PartyMemberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		5BC4E53E220ECAA90085E21E /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		5BC4E542220ED3720085E21E /* MembersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersVC.swift; sourceTree = "<group>"; };
 		5BC4E544220ED62C0085E21E /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		5BC4E546220F08B60085E21E /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		5BC4E548220F0EFB0085E21E /* PartyMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMemberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +126,8 @@
 		5B09931B220E2E6F00901F90 /* ObjectModels */ = {
 			isa = PBXGroup;
 			children = (
-				5B09931C220E2E8F00901F90 /* Party.swift */,
 				5B099320220E311100901F90 /* User.swift */,
+				5B09931C220E2E8F00901F90 /* Party.swift */,
 				5BC4E53E220ECAA90085E21E /* Member.swift */,
 			);
 			path = ObjectModels;
@@ -134,6 +138,7 @@
 			children = (
 				5B099323220E3DE600901F90 /* PartyEditorVC.swift */,
 				5BC4E53C220EC58A0085E21E /* PartyDetailCell.swift */,
+				5BC4E548220F0EFB0085E21E /* PartyMemberCell.swift */,
 			);
 			path = PartyVC;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				5B099328220E4DB500901F90 /* Date+.swift */,
+				5BC4E546220F08B60085E21E /* String+.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -243,10 +249,12 @@
 				5B099321220E311100901F90 /* User.swift in Sources */,
 				5B0992FF220E062400901F90 /* ViewController.swift in Sources */,
 				5B099324220E3DE600901F90 /* PartyEditorVC.swift in Sources */,
+				5BC4E549220F0EFB0085E21E /* PartyMemberCell.swift in Sources */,
 				5B09931D220E2E8F00901F90 /* Party.swift in Sources */,
 				5BC4E545220ED62C0085E21E /* MemberCell.swift in Sources */,
 				5B0992FD220E062400901F90 /* AppDelegate.swift in Sources */,
 				5BC4E543220ED3720085E21E /* MembersVC.swift in Sources */,
+				5BC4E547220F08B60085E21E /* String+.swift in Sources */,
 				5B099329220E4DB500901F90 /* Date+.swift in Sources */,
 				5BC4E53F220ECAA90085E21E /* Member.swift in Sources */,
 			);

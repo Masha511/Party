@@ -10,6 +10,7 @@ import UIKit
 
 class User: NSObject, NSCoding
 {
+
     static var shared: User
     {
         if let data = UserDefaults.standard.object(forKey: "savedUser") as? Data,
@@ -19,16 +20,7 @@ class User: NSObject, NSCoding
         }
         return User()
     }
-    
-    var currentPartyIndex: Int?
-    
-    var currentParty: Party?
-    {
-        guard let index = currentPartyIndex else {return nil}
-        
-        return self.parties[index]
-    }
-    
+
     var parties = [Party]()
     {
         didSet

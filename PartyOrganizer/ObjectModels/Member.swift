@@ -10,7 +10,7 @@ import UIKit
 
 let json_url = URL(string: "http://api-coin.quantox.tech/profiles.json")
 
-class Member: NSObject
+class Member: NSObject, NSCoding
 {
     private static var _all = [Member]()
     
@@ -93,5 +93,34 @@ class Member: NSObject
             completionHandler(UIImage(data: data))
         }
         task.resume()
+    }
+    
+    override init()
+    {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder)
+    {
+        super.init()
+        id = aDecoder.decodeInteger(forKey: "id")
+        name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        gender = aDecoder.decodeObject(forKey: "gender") as? String ?? ""
+        email = aDecoder.decodeObject(forKey: "email") as? String ?? ""
+        aboutMe = aDecoder.decodeObject(forKey: "aboutMe") as? String ?? ""
+        cell = aDecoder.decodeObject(forKey: "cell") as? String ?? ""
+        photo = aDecoder.decodeObject(forKey: "photo") as? String ?? ""
+    }
+    
+    func encode(with aCoder: NSCoder)
+    {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(gender, forKey: "gender")
+        aCoder.encode(email, forKey: "email")
+        aCoder.encode(aboutMe, forKey: "aboutMe")
+        aCoder.encode(aboutMe, forKey: "aboutMe")
+        aCoder.encode(cell, forKey: "cell")
+        aCoder.encode(photo, forKey: "photo")
+        aCoder.encode(id, forKey: "id")
     }
 }

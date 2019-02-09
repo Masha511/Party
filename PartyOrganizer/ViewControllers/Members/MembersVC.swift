@@ -11,6 +11,9 @@ import UIKit
 class MembersVC: UITableViewController
 {
     private var members = [Member]()
+    private var selectedMembers = [Member]()
+    var isPreviewMembers = false
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -26,15 +29,38 @@ class MembersVC: UITableViewController
         }
     }
     
-    private var isPreviewMembers = false
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-    {
-        isPreviewMembers = segue.source is PartyEditorVC
-    }
-    
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
+        prepareScreen()
+    }
+    
+    var party: Party?
+    func present(for party: Party)
+    {
+        isPreviewMembers = true
+        self.party = party
+        self.selectedMembers.append(contentsOf: party.members)
+    }
+    
+    private func prepareScreen()
+    {
+        if isPreviewMembers
+        {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+            self.tableView.allowsMultipleSelection = true
+        }
+        else
+        {
+            self.navigationItem.rightBarButtonItem = nil
+            self.tableView.allowsMultipleSelection = false
+        }
+    }
+    
+    @objc func save(_ sender: UIBarButtonItem)
+    {
+        self.party?.members = self.selectedMembers
+        self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Table view data source
@@ -52,6 +78,10 @@ class MembersVC: UITableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberCell
         cell.set(member: members[indexPath.row], forSelection: isPreviewMembers)
+        if isPreviewMembers
+        {
+            cell.setSelected(self.selectedMembers.contains(members[indexPath.row]), animated: false)
+        }
         return cell
     }
 
@@ -64,42 +94,27 @@ class MembersVC: UITableViewController
     {
         return 60.0
     }
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if isPreviewMembers
+        {
+            self.selectedMembers.append(members[indexPath.row])
+        }
+        else
+        {
+            //TODO: view profile
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath)
+    {
+        if isPreviewMembers
+        {
+            if let index = self.selectedMembers.index(of: members[indexPath.row])
+            {
+                self.selectedMembers.remove(at: index)
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

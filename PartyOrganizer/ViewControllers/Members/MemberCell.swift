@@ -49,5 +49,13 @@ class MemberCell: UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
+        if isSelected
+        {
+            self.accessoryType = .checkmark
+        }
+        else
+        {
+            self.accessoryType = .none
+        }
     }
 }

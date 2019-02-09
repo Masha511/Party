@@ -42,6 +42,7 @@ class Party: NSObject, NSCoding
         self.name = (aDecoder.decodeObject(forKey: "name") as? String) ?? ""
         self.desc = (aDecoder.decodeObject(forKey: "description") as? String) ?? ""
         self.date = (aDecoder.decodeObject(forKey: "date") as? Date) ?? Date()
+        self.members = (aDecoder.decodeObject(forKey: "members") as? [Member]) ?? [Member]()
     }
     
     func encode(with aCoder: NSCoder)
@@ -49,5 +50,6 @@ class Party: NSObject, NSCoding
         aCoder.encode(name, forKey: "name")
         aCoder.encode(desc, forKey: "description")
         aCoder.encode(date, forKey: "date")
+        aCoder.encode(members, forKey: "members")
     }
 }

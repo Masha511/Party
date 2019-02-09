@@ -10,7 +10,6 @@ import UIKit
 
 class PartyCell: UITableViewCell
 {
-    
     override func awakeFromNib()
     {
         super.awakeFromNib()

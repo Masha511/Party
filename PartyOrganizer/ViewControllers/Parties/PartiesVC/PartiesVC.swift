@@ -36,6 +36,22 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let partyEditorVC = segue.destination as? PartyEditorVC
+        {
+            if let sender = sender as? PartyCell
+            {
+                partyEditorVC.present(forParty: self.partiesTableView.indexPath(for: sender)?.row)
+            }
+            else
+            {
+                partyEditorVC.present(forParty: nil)
+            }
+            
+        }
+    }
+    
     //MARK: -Table View Data Source & Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -56,8 +72,7 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        User.shared.currentPartyIndex = indexPath.row
-        self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
+        self.performSegue(withIdentifier: "PartyEditorSegue", sender: tableView.cellForRow(at: indexPath))
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
@@ -72,7 +87,6 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     //MARK: -Actions
     @IBAction func addParty(_ sender: Any)
     {
-        User.shared.currentPartyIndex = nil
         self.performSegue(withIdentifier: "PartyEditorSegue", sender: nil)
     }
     

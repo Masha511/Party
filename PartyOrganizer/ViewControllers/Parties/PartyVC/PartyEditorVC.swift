@@ -8,11 +8,13 @@
 
 import UIKit
 
-class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate
+class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, PartyDetailCellDelegate
 {
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
-    
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var detailsTableView: UITableView!
+    
+    var party: Party!
     
     override func viewDidLoad()
     {
@@ -34,12 +36,47 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        prepareScreen()
+        self.descriptionTextView.text = self.party?.desc ?? ""
+        self.detailsTableView.reloadData()
     }
     
-    func prepareScreen()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        guard let party = User.shared.currentParty else {return}
+        if let membersVC = segue.destination as? MembersVC
+        {
+            membersVC.present(for: self.party)
+        }
+    }
+    
+    private var currentPartyIndex: Int? = nil
+    {
+        didSet
+        {
+            if currentPartyIndex == nil
+            {
+                self.party = Party()
+            }
+            else
+            {
+                self.party = User.shared.parties[currentPartyIndex!]
+            }
+        }
+    }
+    
+    func present(forParty index: Int?)
+    {
+        self.currentPartyIndex = index
+    }
+    
+    //MARK: -Party Detail Cell Delegate
+    func didUpdateName(_ name: String?, cell: PartyDetailCell)
+    {
+        self.party.name = name ?? ""
+    }
+    
+    func didUpdateDate(_ date: Date, cell: PartyDetailCell)
+    {
+        self.party.date = date
     }
     
     //MARK: -TextView Delegate
@@ -67,7 +104,14 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     {
         if let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
         {
-            self.contentBottom_c.constant = keyboardFrame.height - self.view.safeAreaInsets.bottom
+            if descriptionTextView.isFirstResponder
+            {
+                self.contentBottom_c.constant = keyboardFrame.height - self.view.safeAreaInsets.bottom
+            }
+            else
+            {
+                self.contentBottom_c.constant = 0.0
+            }
             UIView.animate(withDuration: 0.2)
             {
                 self.view.layoutIfNeeded()
@@ -85,30 +129,46 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     }
     
     //MARK: -TableViewDelegate
-    var areMembersVisible = false
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 3 + (areMembersVisible ? 0 : 0)
+        return 3 + (party?.members.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        var reuseID = ""
         if indexPath.row == 0
         {
-            reuseID = "PartyNameCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyNameCell") as! PartyDetailCell
+            cell.set(detail: party?.name ?? "")
+            cell.delegate = self
+            return cell
         }
         else if indexPath.row == 1
         {
-            reuseID = "PartyDateCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyDateCell") as! PartyDetailCell
+            cell.set(detail: party?.date?.getString(withTime: true) ?? "")
+            cell.delegate = self
+            return cell
         }
         else if indexPath.row == 2
         {
-            reuseID = "PartyMembersCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMembersCell") as! PartyDetailCell
+            if let party = self.party
+            {
+                cell.set(detail: "\(party.members.count)")
+            }
+            else
+            {
+                cell.set(detail: "")
+            }
+            return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseID) as! PartyDetailCell
-        return cell
+        else
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMemberCell") as! PartyMemberCell
+            cell.set(name: party!.members[indexPath.row - 3].name)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -125,22 +185,24 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     {
         if editingStyle == .delete
         {
-            
+            party.members.remove(at: indexPath.row - 3)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    //MARK: -Actions
-    
-    private func createParty()-> Party
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        let party = Party(name: "Party\(User.shared.parties.count)", description: "Malo duzi opis", date: Date())
-        return party
+        if indexPath.row == 2
+        {
+            self.performSegue(withIdentifier: "PartyMembersPreviewSegue", sender: nil)
+        }
     }
-    
+
+    //MARK: -Actions
+
     @IBAction func saveParty(_ sender: Any)
     {
-        let party = self.createParty()
-        if let index = User.shared.currentPartyIndex
+        if let index = self.currentPartyIndex
         {
             User.shared.parties[index] = party
         }

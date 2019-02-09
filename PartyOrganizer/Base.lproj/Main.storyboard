@@ -68,7 +68,7 @@ Create some!</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="bc2-AE-jbQ" userLabel="EmptyView">
-                                    <rect key="frame" x="0.0" y="212" width="375" height="343"/>
+                                    <rect key="frame" x="0.0" y="212" width="375" height="10"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
@@ -134,7 +134,7 @@ Create some!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S8K-fW-Bcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="-233"/>
+            <point key="canvasLocation" x="2725.5999999999999" y="-233.43328335832086"/>
         </scene>
         <!--Members-->
         <scene sceneID="g3n-qI-kv4">
@@ -145,12 +145,12 @@ Create some!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="va4-CW-mG6">
-                            <rect key="frame" x="0.0" y="156" width="375" height="67"/>
+                            <rect key="frame" x="0.0" y="156" width="375" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="128" id="gGY-0J-Vxt" customClass="MemberCell" customModule="PartyOrganizer" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="128" id="gGY-0J-Vxt" customClass="MemberCell" customModule="PartyOrganizer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGY-0J-Vxt" id="It4-eM-xMN">
@@ -194,7 +194,7 @@ Create some!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcz-NA-Tmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="590"/>
+            <point key="canvasLocation" x="2725.5999999999999" y="589.65517241379314"/>
         </scene>
         <!--Members-->
         <scene sceneID="fIY-kF-Qmr">
@@ -222,19 +222,19 @@ Create some!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-2L-Ofd" userLabel="DetailsHolder">
-                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="271.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nL-rps">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="271.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="6yr-pw-Al1">
-                                            <rect key="frame" x="0.0" y="204" width="375" height="174"/>
+                                            <rect key="frame" x="0.0" y="191" width="375" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyNameCell" textLabel="2iL-Gx-bXP" style="IBUITableViewCellStyleDefault" id="g4Z-nz-Ogu" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyNameCell" textLabel="2iL-Gx-bXP" style="IBUITableViewCellStyleDefault" id="g4Z-nz-Ogu" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g4Z-nz-Ogu" id="urd-Ix-AM2">
@@ -257,15 +257,18 @@ Create some!</string>
                                                         </textField>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="textField" destination="nlH-Ly-3Lm" id="bxk-bP-WaU"/>
+                                                </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PartyDateCell" textLabel="ohg-Gy-aGu" style="IBUITableViewCellStyleDefault" id="TTd-t9-j3J" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyDateCell" textLabel="ohg-Gy-aGu" style="IBUITableViewCellStyleDefault" id="TTd-t9-j3J" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTd-t9-j3J" id="NsX-Hq-rl0">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="12.12.2019 20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohg-Gy-aGu" userLabel="Date">
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohg-Gy-aGu" userLabel="Date">
                                                             <rect key="frame" x="15" y="0.0" width="345" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -281,8 +284,11 @@ Create some!</string>
                                                         </textField>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="textField" destination="GiW-w1-3qu" id="IEs-FH-jfW"/>
+                                                </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PartyMembersCell" textLabel="4yY-a4-hYG" style="IBUITableViewCellStyleDefault" id="Dc1-NR-VmD" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PartyMembersCell" textLabel="4yY-a4-hYG" style="IBUITableViewCellStyleDefault" id="Dc1-NR-VmD" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dc1-NR-VmD" id="LGs-Fx-6Fy">
@@ -299,13 +305,23 @@ Create some!</string>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KGC-8U-yhc">
-                                                <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyMemberCell" focusStyle="custom" textLabel="9EZ-0F-Xfu" rowHeight="31" style="IBUITableViewCellStyleDefault" id="KGC-8U-yhc" customClass="PartyMemberCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="160" width="375" height="31"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGC-8U-yhc" id="ofE-hO-LZr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Bill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9EZ-0F-Xfu">
+                                                            <rect key="frame" x="15" y="0.0" width="345" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -358,9 +374,8 @@ Create some!</string>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="RLK-0M-ylK" secondAttribute="trailing" id="BMn-1x-mbQ"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="bottom" secondItem="RLK-0M-ylK" secondAttribute="bottom" id="LqF-nt-UQc"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="Zrf-2L-Ofd" secondAttribute="trailing" id="Zsx-WG-KVU"/>
-                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="top" secondItem="vJa-zP-Zqb" secondAttribute="top" id="fCn-CS-hmY"/>
                             <constraint firstItem="RLK-0M-ylK" firstAttribute="top" secondItem="Zrf-2L-Ofd" secondAttribute="bottom" id="ltM-sZ-7KB"/>
-                            <constraint firstItem="Ubj-nL-rps" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.5" id="pbs-X7-93m"/>
+                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.45" id="osF-dM-gCv"/>
                             <constraint firstItem="Zrf-2L-Ofd" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="vUw-uz-AZU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vJa-zP-Zqb"/>
@@ -375,12 +390,13 @@ Create some!</string>
                     <connections>
                         <outlet property="contentBottom_c" destination="LqF-nt-UQc" id="YfO-F6-VaL"/>
                         <outlet property="descriptionTextView" destination="GJo-Pl-mzX" id="dld-nH-n1P"/>
+                        <outlet property="detailsTableView" destination="Ubj-nL-rps" id="cPh-An-6pw"/>
                         <segue destination="UY0-55-ca9" kind="show" identifier="PartyMembersPreviewSegue" id="Y1H-X9-2CL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5D-Vc-5XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="-233"/>
+            <point key="canvasLocation" x="3508" y="-233.43328335832086"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XKV-FO-zGW">
