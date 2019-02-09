@@ -10,6 +10,21 @@ import UIKit
 
 class MemberCell: UITableViewCell
 {
+    override var isSelected: Bool
+    {
+        didSet
+        {
+            if isSelected
+            {
+                self.accessoryType = .checkmark
+            }
+            else
+            {
+                self.accessoryType = .none
+            }
+        }
+    }
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
@@ -49,7 +64,7 @@ class MemberCell: UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool)
     {
         super.setSelected(selected, animated: animated)
-        if isSelected
+        if selected
         {
             self.accessoryType = .checkmark
         }
@@ -57,5 +72,7 @@ class MemberCell: UITableViewCell
         {
             self.accessoryType = .none
         }
+        setNeedsDisplay()
+        setNeedsLayout()
     }
 }

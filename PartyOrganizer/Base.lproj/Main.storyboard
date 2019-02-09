@@ -191,10 +191,28 @@ Create some!</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Members" id="1c7-HQ-iEb"/>
+                    <connections>
+                        <segue destination="TMX-c7-TMM" kind="show" identifier="ProfileSegue" id="utQ-oB-iQK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcz-NA-Tmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2725.5999999999999" y="589.65517241379314"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="ooY-q1-Nw7">
+            <objects>
+                <viewController storyboardIdentifier="ProfileVC" hidesBottomBarWhenPushed="YES" id="TMX-c7-TMM" customClass="ProfileVC" customModule="PartyOrganizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K3N-SR-4ED">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="J69-ni-LMA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gq-cB-NTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3508" y="590"/>
         </scene>
         <!--Members-->
         <scene sceneID="fIY-kF-Qmr">

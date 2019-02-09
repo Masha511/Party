@@ -57,10 +57,39 @@ class MembersVC: UITableViewController
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "ProfileSegue"
+        {
+            let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationItem.backBarButtonItem = backBarButton
+            
+            if let profileVC = segue.destination as? ProfileVC, let sender = sender as? UITableViewCell
+            {
+                if let index = tableView.indexPath(for: sender)?.row
+                {
+                    profileVC.present(for: members[index])
+                }
+            }
+        }
+    }
+    
     @objc func save(_ sender: UIBarButtonItem)
     {
         self.party?.members = self.selectedMembers
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func isMemberSelected(_ member: Member)-> Bool
+    {
+        for selectedMember in selectedMembers
+        {
+            if member.id == selectedMember.id
+            {
+                return true
+            }
+        }
+        return false
     }
 
     // MARK: - Table view data source
@@ -77,10 +106,18 @@ class MembersVC: UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as! MemberCell
-        cell.set(member: members[indexPath.row], forSelection: isPreviewMembers)
+        let member = members[indexPath.row]
+        cell.set(member: member, forSelection: isPreviewMembers)
         if isPreviewMembers
         {
-            cell.setSelected(self.selectedMembers.contains(members[indexPath.row]), animated: false)
+            if isMemberSelected(member)
+            {
+                tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            }
+            else
+            {
+                tableView.deselectRow(at: indexPath, animated: false)
+            }
         }
         return cell
     }
