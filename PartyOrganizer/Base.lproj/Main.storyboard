@@ -422,7 +422,7 @@ Create some!</string>
         <scene sceneID="fIY-kF-Qmr">
             <objects>
                 <navigationController id="MwL-4J-s5D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Members" id="r5c-M9-88z"/>
+                    <tabBarItem key="tabBarItem" title="Members" image="members_icon.png" id="r5c-M9-88z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="co0-AC-04E">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -682,11 +682,11 @@ Create some!</string>
             </objects>
             <point key="canvasLocation" x="906" y="125"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Parties-->
         <scene sceneID="76w-sv-QkR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gSE-fJ-KTr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="KaW-Nf-lxZ"/>
+                    <tabBarItem key="tabBarItem" title="Parties" image="party_icon.png" id="KaW-Nf-lxZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zQj-gG-gl9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -708,7 +708,11 @@ Create some!</string>
             <point key="canvasLocation" x="1918" y="-232"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="members_icon.png" width="25" height="25"/>
+        <image name="party_icon.png" width="25" height="25"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y1H-X9-2CL"/>
+        <segue reference="dtb-DG-m0j"/>
     </inferredMetricsTieBreakers>
 </document>
