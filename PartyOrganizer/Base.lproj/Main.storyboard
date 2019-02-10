@@ -450,7 +450,7 @@ Create some!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-2L-Ofd" userLabel="DetailsHolder">
-                                <rect key="frame" x="0.0" y="76" width="375" height="319.5"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="301.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nL-rps">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -555,7 +555,7 @@ Create some!</string>
                                         </connections>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-1D-P6T">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="169.5"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="151.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="ZTK-Nb-fl3">
                                             <rect key="frame" x="0.0" y="59" width="375" height="12"/>
@@ -600,16 +600,16 @@ Create some!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-0M-ylK" userLabel="DescriptionHolder">
-                                <rect key="frame" x="0.0" y="395.5" width="375" height="271.5"/>
+                                <rect key="frame" x="0.0" y="377.5" width="375" height="209.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhM-7U-t1W">
-                                        <rect key="frame" x="20" y="61" width="158" height="17"/>
+                                        <rect key="frame" x="20" y="47" width="158" height="17"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GJo-Pl-mzX">
-                                        <rect key="frame" x="20" y="61" width="335" height="149.5"/>
+                                        <rect key="frame" x="20" y="47" width="335" height="115.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="208" id="arB-1T-cNT"/>
@@ -619,7 +619,7 @@ Create some!</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PQ-iV-yuY">
-                                        <rect key="frame" x="20" y="33" width="335" height="20"/>
+                                        <rect key="frame" x="20" y="19" width="335" height="20"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -638,16 +638,50 @@ Create some!</string>
                                     <constraint firstItem="GJo-Pl-mzX" firstAttribute="centerY" secondItem="RLK-0M-ylK" secondAttribute="centerY" id="Wka-WU-zoD"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGX-8p-gWK" userLabel="CountdownHolder">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-il-jgS">
+                                        <rect key="frame" x="5" y="0.0" width="365" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbL-2a-s2S">
+                                        <rect key="frame" x="5" y="20" width="365" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="TMc-pt-i2W"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gbL-2a-s2S" firstAttribute="leading" secondItem="BGX-8p-gWK" secondAttribute="leading" constant="5" id="7Of-K2-UpD"/>
+                                    <constraint firstItem="bSC-il-jgS" firstAttribute="leading" secondItem="BGX-8p-gWK" secondAttribute="leading" constant="5" id="9KK-te-80y"/>
+                                    <constraint firstAttribute="height" constant="80" id="CTr-4q-dOn"/>
+                                    <constraint firstAttribute="bottom" secondItem="gbL-2a-s2S" secondAttribute="bottom" id="Crp-Hg-bJP"/>
+                                    <constraint firstAttribute="trailing" secondItem="bSC-il-jgS" secondAttribute="trailing" constant="5" id="K2S-Wh-giN"/>
+                                    <constraint firstAttribute="trailing" secondItem="gbL-2a-s2S" secondAttribute="trailing" constant="5" id="Mut-an-IKs"/>
+                                    <constraint firstItem="bSC-il-jgS" firstAttribute="top" secondItem="BGX-8p-gWK" secondAttribute="top" id="f3g-Wr-yOp"/>
+                                    <constraint firstItem="gbL-2a-s2S" firstAttribute="top" secondItem="bSC-il-jgS" secondAttribute="bottom" id="hqa-Js-l53"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RLK-0M-ylK" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.45" id="5Rb-RL-ghl"/>
+                            <constraint firstItem="RLK-0M-ylK" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.48" constant="-80" id="5Rb-RL-ghl"/>
+                            <constraint firstItem="vJa-zP-Zqb" firstAttribute="bottom" secondItem="BGX-8p-gWK" secondAttribute="bottom" id="7I3-8X-Ukw"/>
                             <constraint firstItem="RLK-0M-ylK" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="B4y-k7-AjQ"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="RLK-0M-ylK" secondAttribute="trailing" id="BMn-1x-mbQ"/>
-                            <constraint firstItem="vJa-zP-Zqb" firstAttribute="bottom" secondItem="RLK-0M-ylK" secondAttribute="bottom" id="LqF-nt-UQc"/>
+                            <constraint firstItem="BGX-8p-gWK" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="KKt-Hc-bSW"/>
+                            <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="BGX-8p-gWK" secondAttribute="trailing" id="W6V-gu-H56"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="Zrf-2L-Ofd" secondAttribute="trailing" id="Zsx-WG-KVU"/>
+                            <constraint firstItem="BGX-8p-gWK" firstAttribute="top" secondItem="RLK-0M-ylK" secondAttribute="bottom" id="dp7-i0-fpK"/>
                             <constraint firstItem="RLK-0M-ylK" firstAttribute="top" secondItem="Zrf-2L-Ofd" secondAttribute="bottom" id="ltM-sZ-7KB"/>
-                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.53" id="osF-dM-gCv"/>
+                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.5" id="osF-dM-gCv"/>
                             <constraint firstItem="Zrf-2L-Ofd" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="vUw-uz-AZU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vJa-zP-Zqb"/>
@@ -660,7 +694,10 @@ Create some!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="contentBottom_c" destination="LqF-nt-UQc" id="YfO-F6-VaL"/>
+                        <outlet property="contentBottom_c" destination="7I3-8X-Ukw" id="aBX-Wz-HV4"/>
+                        <outlet property="countDownLbl" destination="gbL-2a-s2S" id="QD1-0t-Qfb"/>
+                        <outlet property="countDownLblHeigh_c" destination="CTr-4q-dOn" id="NUc-OJ-0ha"/>
+                        <outlet property="descriptionHolderHeight_c" destination="5Rb-RL-ghl" id="WBy-iF-rX6"/>
                         <outlet property="descriptionTextView" destination="GJo-Pl-mzX" id="dld-nH-n1P"/>
                         <outlet property="detailsTableView" destination="Ubj-nL-rps" id="00r-Fv-WDx"/>
                         <outlet property="membersTableView" destination="7Ix-1D-P6T" id="qgK-oC-PdD"/>
@@ -722,6 +759,6 @@ Create some!</string>
         <image name="party_icon.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dtb-DG-m0j"/>
+        <segue reference="Y1H-X9-2CL"/>
     </inferredMetricsTieBreakers>
 </document>

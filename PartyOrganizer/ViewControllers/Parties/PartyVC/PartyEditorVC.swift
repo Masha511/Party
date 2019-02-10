@@ -18,7 +18,10 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     @IBOutlet weak var placeholderLbl: UILabel!
     @IBOutlet weak var membersTableView: UITableView!
     
+    @IBOutlet weak var descriptionHolderHeight_c: NSLayoutConstraint!
+    @IBOutlet weak var countDownLbl: UILabel!
     var party: Party!
+    @IBOutlet weak var countDownLblHeigh_c: NSLayoutConstraint!
     
     override func viewDidLoad()
     {
@@ -30,10 +33,14 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         
         let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationItem.backBarButtonItem = backBarButton
+        
+        self.countDownLbl.adjustsFontSizeToFitWidth = true
     }
     
     deinit
     {
+        self.timer?.invalidate()
+        self.timer = nil
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -50,6 +57,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         }
         self.detailsTableView.reloadData()
         self.membersTableView.reloadData()
+        self.setupCountdownVisibility()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -78,6 +86,63 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     func present(forParty index: Int?)
     {
         self.currentPartyIndex = index
+    }
+    
+    //MARK: -Countdown
+    private var isCountdownShown = false
+    private func setupCountdownVisibility()
+    {
+        if let party = self.party,
+        let partyDate = party.date
+        {
+            let today = Date()
+            if today.compare(partyDate) == .orderedAscending
+            {
+                showCountdow(for: partyDate)
+            }
+            else
+            {
+                hideCountdown()
+            }
+        }
+        else
+        {
+            hideCountdown()
+        }
+    }
+    
+    private func showCountdow(for date: Date)
+    {
+        isCountdownShown = true
+        self.countDownLblHeigh_c.constant = 80.0
+        self.descriptionHolderHeight_c.constant = -80.0
+        self.view.layoutIfNeeded()
+        
+        self.startCountDown(for: date)
+    }
+    
+    private func hideCountdown()
+    {
+        isCountdownShown = false
+        self.timer?.invalidate()
+        self.timer = nil
+        self.countDownLblHeigh_c.constant = 0.0
+        self.descriptionHolderHeight_c.constant = 0.0
+        self.view.layoutIfNeeded()
+    }
+    
+    private var timer: Timer?
+    private func startCountDown(for date: Date)
+    {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (_) in
+            self.updateTime(to: date)
+        })
+    }
+    
+    private func updateTime(to date: Date)
+    {
+        let interval = date.timeIntervalSince(Date())
+        countDownLbl.text = interval.getString()
     }
     
     //MARK: -Party Detail Cell Delegate
@@ -126,7 +191,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         {
             if descriptionTextView.isFirstResponder
             {
-                self.contentBottom_c.constant = keyboardFrame.height - self.view.safeAreaInsets.bottom
+                self.contentBottom_c.constant = keyboardFrame.height - self.view.safeAreaInsets.bottom - (isCountdownShown ? 80.0 : 0.0)
             }
             else
             {
