@@ -8,8 +8,6 @@
 
 import UIKit
 
-//TODO: Party CountDown
-
 class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, PartyDetailCellDelegate
 {
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
