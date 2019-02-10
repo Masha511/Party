@@ -11,7 +11,7 @@ import UIKit
 protocol PartyDetailCellDelegate: class
 {
     func didUpdateName(_ name: String?, cell: PartyDetailCell)
-    func didUpdateDate(_ date: Date, cell: PartyDetailCell)
+    func didUpdateDate(_ date: Date?, cell: PartyDetailCell)
 }
 
 class PartyDetailCell: UITableViewCell, UITextFieldDelegate
@@ -49,6 +49,11 @@ class PartyDetailCell: UITableViewCell, UITextFieldDelegate
         self.textField.text = detail.isEmpty ? nil : detail
     }
     
+    func startEditing()
+    {
+        self.textField?.becomeFirstResponder()
+    }
+    
     //MARK: Date Picker
     
     func setDatePickerInput()
@@ -76,6 +81,12 @@ class PartyDetailCell: UITableViewCell, UITextFieldDelegate
     
     @objc func done()
     {
+        if let picker = self.textField.inputView as? UIDatePicker
+        {
+            self.textField?.text = picker.date.getString(withTime: true)
+            self.updateValues(from: self.textField)
+        }
+        
         self.textField?.resignFirstResponder()
     }
 
@@ -102,7 +113,7 @@ class PartyDetailCell: UITableViewCell, UITextFieldDelegate
         {
             guard let string = self.textField?.text else {return}
             
-            delegate?.didUpdateDate(string.getDate(withTime: true) ?? Date(), cell: self)
+            delegate?.didUpdateDate(string.getDate(withTime: true), cell: self)
         }
     }
 }

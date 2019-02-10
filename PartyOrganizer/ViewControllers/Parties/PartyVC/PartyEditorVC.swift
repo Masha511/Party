@@ -8,6 +8,8 @@
 
 import UIKit
 
+//TODO: Party CountDown
+
 class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, PartyDetailCellDelegate
 {
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
@@ -83,7 +85,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         self.party.name = name ?? ""
     }
     
-    func didUpdateDate(_ date: Date, cell: PartyDetailCell)
+    func didUpdateDate(_ date: Date?, cell: PartyDetailCell)
     {
         self.party.date = date
     }
@@ -218,7 +220,26 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
 
     @IBAction func saveParty(_ sender: Any)
     {
-        //TODO: Alert for empty fields
+        if party.name.isEmpty
+        {
+            let alert = UIAlertController(title: "No Name", message: "Please enter a name for this party.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                (self.detailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PartyDetailCell)?.startEditing()
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if party.date == nil
+        {
+            let alert = UIAlertController(title: "No Date", message: "Please enter a date for this party.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                (self.detailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? PartyDetailCell)?.startEditing()
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         if let index = self.currentPartyIndex
         {
             User.shared.parties[index] = party

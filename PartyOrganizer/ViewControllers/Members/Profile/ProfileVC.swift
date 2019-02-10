@@ -125,6 +125,17 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout,
     
     func addToParty()
     {
+        if User.shared.parties.count == 0
+        {
+            let alert = UIAlertController(title: "No parties", message: "There are no available parties. Do you wish to create one?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
+                //TODO: show party editor
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         self.performSegue(withIdentifier: "AddToPartySegue", sender: nil)
     }
 }

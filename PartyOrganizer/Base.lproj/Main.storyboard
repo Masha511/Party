@@ -277,7 +277,7 @@ Create some!</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY7-hO-ZnQ">
-                                            <rect key="frame" x="5" y="5" width="53.5" height="20"/>
+                                            <rect key="frame" x="5" y="5" width="369" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="bjA-mH-qkP"/>
                                             </constraints>
@@ -300,6 +300,7 @@ Create some!</string>
                                     <constraint firstItem="LwL-H7-K1Y" firstAttribute="leading" secondItem="4Vy-0c-qnn" secondAttribute="leading" constant="5" id="WdL-O9-zk5"/>
                                     <constraint firstItem="YY7-hO-ZnQ" firstAttribute="top" secondItem="4Vy-0c-qnn" secondAttribute="top" constant="5" id="ZvW-UZ-jsS"/>
                                     <constraint firstItem="LwL-H7-K1Y" firstAttribute="top" secondItem="YY7-hO-ZnQ" secondAttribute="bottom" id="qqc-hu-JyI"/>
+                                    <constraint firstAttribute="trailing" secondItem="YY7-hO-ZnQ" secondAttribute="trailing" id="shX-ja-lHZ"/>
                                     <constraint firstAttribute="trailing" secondItem="LwL-H7-K1Y" secondAttribute="trailing" constant="5" id="vtl-ro-HN6"/>
                                 </constraints>
                                 <size key="customSize" width="374" height="296"/>
@@ -449,7 +450,7 @@ Create some!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-2L-Ofd" userLabel="DetailsHolder">
-                                <rect key="frame" x="0.0" y="94" width="375" height="271.5"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="319.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nL-rps">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -457,62 +458,74 @@ Create some!</string>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Yyx-8s-40E"/>
                                         </constraints>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="6yr-pw-Al1">
                                             <rect key="frame" x="0.0" y="160" width="375" height="5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyNameCell" textLabel="2iL-Gx-bXP" style="IBUITableViewCellStyleDefault" id="g4Z-nz-Ogu" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyNameCell" id="g4Z-nz-Ogu" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g4Z-nz-Ogu" id="urd-Ix-AM2">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2iL-Gx-bXP">
-                                                            <rect key="frame" x="15" y="0.0" width="345" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Party Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-Ly-3Lm">
-                                                            <rect key="frame" x="180" y="7" width="180" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Party Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-Ly-3Lm">
+                                                            <rect key="frame" x="72" y="0.0" width="283" height="44"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mHK-kx-6qo">
+                                                            <rect key="frame" x="20" y="12" width="47" height="20"/>
+                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="nlH-Ly-3Lm" firstAttribute="leading" secondItem="mHK-kx-6qo" secondAttribute="trailing" constant="5" id="1cA-RE-xfV"/>
+                                                        <constraint firstItem="mHK-kx-6qo" firstAttribute="centerY" secondItem="urd-Ix-AM2" secondAttribute="centerY" id="B3C-sv-9w1"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nlH-Ly-3Lm" secondAttribute="bottom" id="K2h-zL-N7U"/>
+                                                        <constraint firstItem="nlH-Ly-3Lm" firstAttribute="top" secondItem="urd-Ix-AM2" secondAttribute="top" id="Rhc-Ub-d2z"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nlH-Ly-3Lm" secondAttribute="trailing" constant="20" symbolic="YES" id="YAn-aw-VQq"/>
+                                                        <constraint firstItem="mHK-kx-6qo" firstAttribute="leading" secondItem="urd-Ix-AM2" secondAttribute="leading" constant="20" symbolic="YES" id="lMX-M7-T4P"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="textField" destination="nlH-Ly-3Lm" id="bxk-bP-WaU"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyDateCell" textLabel="ohg-Gy-aGu" style="IBUITableViewCellStyleDefault" id="TTd-t9-j3J" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PartyDateCell" id="TTd-t9-j3J" customClass="PartyDetailCell" customModule="PartyOrganizer" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TTd-t9-j3J" id="NsX-Hq-rl0">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohg-Gy-aGu" userLabel="Date">
-                                                            <rect key="frame" x="15" y="0.0" width="345" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start date &amp; time" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GiW-w1-3qu">
-                                                            <rect key="frame" x="176" y="7" width="184" height="30"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Start date &amp; time" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GiW-w1-3qu">
+                                                            <rect key="frame" x="62.5" y="0.0" width="292.5" height="44"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MM-k2-OlH">
+                                                            <rect key="frame" x="20" y="12" width="37.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="GiW-w1-3qu" secondAttribute="trailing" constant="20" symbolic="YES" id="6pe-HU-4Pd"/>
+                                                        <constraint firstItem="3MM-k2-OlH" firstAttribute="leading" secondItem="NsX-Hq-rl0" secondAttribute="leading" constant="20" symbolic="YES" id="8jg-VF-pUF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="GiW-w1-3qu" secondAttribute="bottom" id="9Vv-uh-GCL"/>
+                                                        <constraint firstItem="3MM-k2-OlH" firstAttribute="centerY" secondItem="NsX-Hq-rl0" secondAttribute="centerY" id="Qt4-wM-NzU"/>
+                                                        <constraint firstItem="GiW-w1-3qu" firstAttribute="leading" secondItem="3MM-k2-OlH" secondAttribute="trailing" constant="5" id="ijm-wA-HF3"/>
+                                                        <constraint firstItem="GiW-w1-3qu" firstAttribute="top" secondItem="NsX-Hq-rl0" secondAttribute="top" id="kwW-uh-Nsj"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="textField" destination="GiW-w1-3qu" id="IEs-FH-jfW"/>
@@ -542,7 +555,7 @@ Create some!</string>
                                         </connections>
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ix-1D-P6T">
-                                        <rect key="frame" x="0.0" y="150" width="375" height="121.5"/>
+                                        <rect key="frame" x="0.0" y="150" width="375" height="169.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="ZTK-Nb-fl3">
                                             <rect key="frame" x="0.0" y="59" width="375" height="12"/>
@@ -587,10 +600,10 @@ Create some!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-0M-ylK" userLabel="DescriptionHolder">
-                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
+                                <rect key="frame" x="0.0" y="395.5" width="375" height="271.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GJo-Pl-mzX">
-                                        <rect key="frame" x="20" y="68" width="335" height="165.5"/>
+                                        <rect key="frame" x="20" y="61" width="335" height="149.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="208" id="arB-1T-cNT"/>
@@ -600,7 +613,7 @@ Create some!</string>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PQ-iV-yuY">
-                                        <rect key="frame" x="20" y="40" width="335" height="20"/>
+                                        <rect key="frame" x="20" y="33" width="335" height="20"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -620,13 +633,13 @@ Create some!</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RLK-0M-ylK" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.5" id="5Rb-RL-ghl"/>
+                            <constraint firstItem="RLK-0M-ylK" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.45" id="5Rb-RL-ghl"/>
                             <constraint firstItem="RLK-0M-ylK" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="B4y-k7-AjQ"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="RLK-0M-ylK" secondAttribute="trailing" id="BMn-1x-mbQ"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="bottom" secondItem="RLK-0M-ylK" secondAttribute="bottom" id="LqF-nt-UQc"/>
                             <constraint firstItem="vJa-zP-Zqb" firstAttribute="trailing" secondItem="Zrf-2L-Ofd" secondAttribute="trailing" id="Zsx-WG-KVU"/>
                             <constraint firstItem="RLK-0M-ylK" firstAttribute="top" secondItem="Zrf-2L-Ofd" secondAttribute="bottom" id="ltM-sZ-7KB"/>
-                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.45" id="osF-dM-gCv"/>
+                            <constraint firstItem="Zrf-2L-Ofd" firstAttribute="height" secondItem="vJa-zP-Zqb" secondAttribute="height" multiplier="0.53" id="osF-dM-gCv"/>
                             <constraint firstItem="Zrf-2L-Ofd" firstAttribute="leading" secondItem="vJa-zP-Zqb" secondAttribute="leading" id="vUw-uz-AZU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vJa-zP-Zqb"/>
