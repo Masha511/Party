@@ -15,6 +15,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var detailsTableView: UITableView!
+    @IBOutlet weak var placeholderLbl: UILabel!
     @IBOutlet weak var membersTableView: UITableView!
     
     var party: Party!
@@ -41,11 +42,11 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         super.viewDidAppear(animated)
         if let party = self.party
         {
-            self.descriptionTextView.text = party.desc.isEmpty ? "No description available" : party.desc
+            self.placeholderLbl.isHidden = !party.desc.isEmpty
         }
         else
         {
-            self.descriptionTextView.text = ""
+            self.placeholderLbl.isHidden = false
         }
         self.detailsTableView.reloadData()
         self.membersTableView.reloadData()
@@ -94,6 +95,8 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
+        placeholderLbl.isHidden = true
+        
         let toolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         toolbar.barStyle = .default
         toolbar.items = [
@@ -102,6 +105,12 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         toolbar.sizeToFit()
         textView.inputAccessoryView = toolbar
         
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool
+    {
+        placeholderLbl.isHidden = !textView.text.isEmpty
         return true
     }
     

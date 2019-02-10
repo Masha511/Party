@@ -602,9 +602,15 @@ Create some!</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-0M-ylK" userLabel="DescriptionHolder">
                                 <rect key="frame" x="0.0" y="395.5" width="375" height="271.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhM-7U-t1W">
+                                        <rect key="frame" x="20" y="61" width="158" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GJo-Pl-mzX">
                                         <rect key="frame" x="20" y="61" width="335" height="149.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="999" constant="208" id="arB-1T-cNT"/>
                                         </constraints>
@@ -622,6 +628,8 @@ Create some!</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="8PQ-iV-yuY" firstAttribute="leading" secondItem="RLK-0M-ylK" secondAttribute="leading" constant="20" symbolic="YES" id="1Hu-sh-Kq4"/>
+                                    <constraint firstItem="IhM-7U-t1W" firstAttribute="leading" secondItem="GJo-Pl-mzX" secondAttribute="leading" id="32l-6u-3Tq"/>
+                                    <constraint firstItem="IhM-7U-t1W" firstAttribute="top" secondItem="GJo-Pl-mzX" secondAttribute="top" id="9ft-Il-buq"/>
                                     <constraint firstAttribute="trailing" secondItem="8PQ-iV-yuY" secondAttribute="trailing" constant="20" symbolic="YES" id="C2i-h0-Tju"/>
                                     <constraint firstAttribute="trailing" secondItem="GJo-Pl-mzX" secondAttribute="trailing" constant="20" symbolic="YES" id="G3G-2a-VQL"/>
                                     <constraint firstItem="GJo-Pl-mzX" firstAttribute="leading" secondItem="RLK-0M-ylK" secondAttribute="leading" constant="20" symbolic="YES" id="JNa-rm-sHX"/>
@@ -656,6 +664,7 @@ Create some!</string>
                         <outlet property="descriptionTextView" destination="GJo-Pl-mzX" id="dld-nH-n1P"/>
                         <outlet property="detailsTableView" destination="Ubj-nL-rps" id="00r-Fv-WDx"/>
                         <outlet property="membersTableView" destination="7Ix-1D-P6T" id="qgK-oC-PdD"/>
+                        <outlet property="placeholderLbl" destination="IhM-7U-t1W" id="O51-zO-uOD"/>
                         <segue destination="UY0-55-ca9" kind="show" identifier="PartyMembersPreviewSegue" id="Y1H-X9-2CL"/>
                     </connections>
                 </viewController>
