@@ -10,7 +10,7 @@ import UIKit
 
 class AddToPartyVC: UITableViewController
 {
-    var selectedParties = [Party]()
+    var selectedParties = [Int]()
     
     override func viewDidLoad()
     {
@@ -22,10 +22,11 @@ class AddToPartyVC: UITableViewController
     {
         self.member = member
         self.navigationItem.title = member.name
-        self.selectedParties = User.shared.parties.compactMap({ (party) -> Party? in
-            if party.members.contains(member)
+
+        self.selectedParties = User.shared.parties.enumerated().compactMap({ (pair) -> Int? in
+            if pair.element.members.contains(member)
             {
-                return party
+                return pair.offset
             }
             return nil
         })
@@ -46,7 +47,7 @@ class AddToPartyVC: UITableViewController
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PartyCompactCell", for: indexPath) as! PartyCompactCell
         let party = User.shared.parties[indexPath.row]
-        cell.isPartySelected = self.selectedParties.contains(party)
+        cell.isPartySelected = self.selectedParties.contains(indexPath.row)
         cell.set(name: party.name)
         return cell
     }
@@ -65,12 +66,12 @@ class AddToPartyVC: UITableViewController
             cell.isPartySelected = !cell.isPartySelected
             if cell.isPartySelected
             {
-                self.selectedParties.append(party)
+                self.selectedParties.append(indexPath.row)
                 party.add(member: self.member)
             }
             else
             {
-                if let index = self.selectedParties.index(of: party)
+                if let index = self.selectedParties.index(of: indexPath.row)
                 {
                     self.selectedParties.remove(at: index)
                     party.remove(member: member)

@@ -395,7 +395,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         }
         else
         {
-            User.shared.parties.append(party)
+            User.shared.parties.insert(party, at: 0)
         }
 
         self.navigationController?.popViewController(animated: true)
