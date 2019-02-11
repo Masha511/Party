@@ -8,13 +8,11 @@
 
 import UIKit
 
-//TODO: Show parties by date
-
 class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
     @IBOutlet weak var partiesTableView: UITableView!
     @IBOutlet weak var createBtn: UIButton!
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()

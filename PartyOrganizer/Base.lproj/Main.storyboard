@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kas-9p-ANW">
-                                <rect key="frame" x="117.5" y="64" width="140.5" height="255"/>
+                                <rect key="frame" x="113.5" y="64" width="148" height="255"/>
                                 <string key="text">You have no party.
 Create some!</string>
                                 <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
@@ -370,6 +370,7 @@ Create some!</string>
                     </collectionView>
                     <connections>
                         <segue destination="lTl-Pz-6fe" kind="show" identifier="AddToPartySegue" id="Jyl-uh-1XH"/>
+                        <segue destination="Txr-aX-PPY" kind="show" identifier="CreatePartySegue" id="qH2-rb-Zll"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igF-Mp-3kU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -453,7 +454,7 @@ Create some!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zrf-2L-Ofd" userLabel="DetailsHolder">
-                                <rect key="frame" x="0.0" y="76" width="375" height="301.5"/>
+                                <rect key="frame" x="0.0" y="156" width="375" height="301.5"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-nL-rps">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -635,10 +636,10 @@ Create some!</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-0M-ylK" userLabel="DescriptionHolder">
-                                <rect key="frame" x="0.0" y="377.5" width="375" height="209.5"/>
+                                <rect key="frame" x="0.0" y="457.5" width="375" height="209.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhM-7U-t1W">
-                                        <rect key="frame" x="20" y="47" width="158" height="17"/>
+                                        <rect key="frame" x="20" y="47" width="355" height="17"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -671,22 +672,20 @@ Create some!</string>
                                     <constraint firstItem="GJo-Pl-mzX" firstAttribute="height" relation="lessThanOrEqual" secondItem="RLK-0M-ylK" secondAttribute="height" multiplier="0.55" id="KKo-h3-FB1"/>
                                     <constraint firstItem="GJo-Pl-mzX" firstAttribute="top" secondItem="8PQ-iV-yuY" secondAttribute="bottom" constant="8" symbolic="YES" id="O95-h3-ygq"/>
                                     <constraint firstItem="GJo-Pl-mzX" firstAttribute="centerY" secondItem="RLK-0M-ylK" secondAttribute="centerY" id="Wka-WU-zoD"/>
+                                    <constraint firstAttribute="trailing" secondItem="IhM-7U-t1W" secondAttribute="trailing" id="bL5-HB-Osj"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGX-8p-gWK" userLabel="CountdownHolder">
-                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSC-il-jgS">
-                                        <rect key="frame" x="5" y="0.0" width="365" height="20"/>
+                                        <rect key="frame" x="5" y="0.0" width="365" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbL-2a-s2S">
-                                        <rect key="frame" x="5" y="20" width="365" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="TMc-pt-i2W"/>
-                                        </constraints>
+                                        <rect key="frame" x="5" y="0.0" width="365" height="0.0"/>
                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -696,7 +695,7 @@ Create some!</string>
                                 <constraints>
                                     <constraint firstItem="gbL-2a-s2S" firstAttribute="leading" secondItem="BGX-8p-gWK" secondAttribute="leading" constant="5" id="7Of-K2-UpD"/>
                                     <constraint firstItem="bSC-il-jgS" firstAttribute="leading" secondItem="BGX-8p-gWK" secondAttribute="leading" constant="5" id="9KK-te-80y"/>
-                                    <constraint firstAttribute="height" constant="80" id="CTr-4q-dOn"/>
+                                    <constraint firstAttribute="height" id="CTr-4q-dOn"/>
                                     <constraint firstAttribute="bottom" secondItem="gbL-2a-s2S" secondAttribute="bottom" id="Crp-Hg-bJP"/>
                                     <constraint firstAttribute="trailing" secondItem="bSC-il-jgS" secondAttribute="trailing" constant="5" id="K2S-Wh-giN"/>
                                     <constraint firstAttribute="trailing" secondItem="gbL-2a-s2S" secondAttribute="trailing" constant="5" id="Mut-an-IKs"/>
@@ -742,7 +741,7 @@ Create some!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5D-Vc-5XZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3508" y="-233.43328335832086"/>
+            <point key="canvasLocation" x="4284" y="-233"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XKV-FO-zGW">
@@ -794,6 +793,7 @@ Create some!</string>
         <image name="party_icon.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="kpp-ES-8xt"/>
         <segue reference="Y1H-X9-2CL"/>
     </inferredMetricsTieBreakers>
 </document>

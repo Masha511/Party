@@ -48,6 +48,10 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout,
         {
             addToPartyVC.present(for: self.member)
         }
+        if let partyEditorVC = segue.destination as? PartyEditorVC
+        {
+            partyEditorVC.present(forParty: nil)
+        }
     }
     
     //MARK: -Collection View
@@ -129,7 +133,7 @@ class ProfileVC: UICollectionViewController, UICollectionViewDelegateFlowLayout,
         {
             let alert = UIAlertController(title: "No parties", message: "There are no available parties. Do you wish to create one?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (_) in
-                //TODO: show party editor
+                self.performSegue(withIdentifier: "CreatePartySegue", sender: nil)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
