@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class Party: NSObject, NSCoding
 {
@@ -14,6 +15,7 @@ class Party: NSObject, NSCoding
     var date: Date!
     var desc = ""
     var members = [Member]()
+    var isReminderOn = false
     
     convenience init(name: String, description: String, date: Date)
     {
@@ -39,6 +41,32 @@ class Party: NSObject, NSCoding
         }
     }
     
+    //MARK: -Notifications
+    private var notificationID = ""
+    
+    func scheduleNotification()
+    {
+        cancelNotification()
+        self.notificationID = self.name + Date().getDateIDString() //to get unique ID for notification
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Party is starting"
+        content.body = self.name + " is starting right now!"
+        content.sound = UNNotificationSound.default
+        
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self.date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: self.notificationID, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
+    
+    func cancelNotification()
+    {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [self.notificationID])
+    }
+    
     override init()
     {
         super.init()
@@ -51,6 +79,7 @@ class Party: NSObject, NSCoding
         self.desc = (aDecoder.decodeObject(forKey: "description") as? String) ?? ""
         self.date = (aDecoder.decodeObject(forKey: "date") as? Date) ?? Date()
         self.members = (aDecoder.decodeObject(forKey: "members") as? [Member]) ?? [Member]()
+        self.isReminderOn = aDecoder.decodeBool(forKey: "isReminderOn")
     }
     
     func encode(with aCoder: NSCoder)
@@ -59,5 +88,6 @@ class Party: NSObject, NSCoding
         aCoder.encode(desc, forKey: "description")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(members, forKey: "members")
+        aCoder.encode(isReminderOn, forKey: "isReminderOn")
     }
 }

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
 
-class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, PartyDetailCellDelegate
+class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, PartyCellDelegate
 {
     @IBOutlet weak var contentBottom_c: NSLayoutConstraint!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -152,10 +153,61 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
     func didUpdateDate(_ date: Date?, cell: PartyDetailCell)
     {
         self.party.date = date
+        if let cell = detailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as? PartyReminderCell
+        {
+            if date == nil || date!.compare(Date()) == .orderedAscending
+            {
+                cell.disableSwitch()
+                self.party.isReminderOn = false
+            }
+            else
+            {
+                cell.enableSwitch()
+            }
+        }
+    }
+    
+    func didUpdateReminder(_ isOn: Bool, cell: PartyReminderCell)
+    {
+        if isOn
+        {
+            checkNotifications()
+        }
+        else
+        {
+            party.isReminderOn = false
+        }
+    }
+    
+    private func checkNotifications()
+    {
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { (settings) in
+            
+            if settings.authorizationStatus == .notDetermined
+            {
+                center.requestAuthorization(options: UNAuthorizationOptions(arrayLiteral: .alert, .sound)) { (authorized, error) in
+                    
+                    if authorized
+                    {
+                        self.party.isReminderOn = true
+                    }
+                }
+            }
+            else if settings.authorizationStatus == .authorized
+            {
+                self.party.isReminderOn = true
+            }
+            else
+            {
+                let alert = UIAlertController(title: "Not authorized", message: "This application is not authorized to send notifications.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     //MARK: -TextView Delegate
-    
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool
     {
         placeholderLbl.isHidden = true
@@ -218,7 +270,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
         {
             return party?.members.count ?? 0
         }
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -244,7 +296,7 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
             cell.delegate = self
             return cell
         }
-        else
+        else if indexPath.row == 2
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PartyMembersCell") as! PartyDetailCell
             if let party = self.party
@@ -255,6 +307,22 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
             {
                 cell.set(detail: "")
             }
+            return cell
+        }
+        else
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PartyReminderCell") as! PartyReminderCell
+            
+            if party.date == nil || party.date!.compare(Date()) == .orderedAscending
+            {
+                cell.disableSwitch()
+            }
+            else
+            {
+                cell.enableSwitch()
+                cell.setSwitch(on: party.isReminderOn)
+            }
+            cell.delegate = self
             return cell
         }
     }
@@ -310,6 +378,15 @@ class PartyEditorVC: UIViewController, UITextViewDelegate, UITableViewDataSource
             }))
             self.present(alert, animated: true, completion: nil)
             return
+        }
+        
+        if party.isReminderOn
+        {
+            party.scheduleNotification()
+        }
+        else
+        {
+            party.cancelNotification()
         }
         
         if let index = self.currentPartyIndex

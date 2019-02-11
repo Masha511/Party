@@ -23,4 +23,11 @@ extension Date
         }
         return formatter.string(from: self) 
     }
+    
+    func getDateIDString()-> String
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy-HH:mm:ss"
+        return formatter.string(from: self)
+    }
 }

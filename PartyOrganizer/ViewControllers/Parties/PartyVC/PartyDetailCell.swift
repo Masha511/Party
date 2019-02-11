@@ -8,16 +8,17 @@
 
 import UIKit
 
-protocol PartyDetailCellDelegate: class
+protocol PartyCellDelegate: class
 {
     func didUpdateName(_ name: String?, cell: PartyDetailCell)
     func didUpdateDate(_ date: Date?, cell: PartyDetailCell)
+    func didUpdateReminder(_ isOn: Bool, cell: PartyReminderCell)
 }
 
 class PartyDetailCell: UITableViewCell, UITextFieldDelegate
 {
     @IBOutlet weak var textField: UITextField!
-    weak var delegate: PartyDetailCellDelegate?
+    weak var delegate: PartyCellDelegate?
     
     override func awakeFromNib()
     {
