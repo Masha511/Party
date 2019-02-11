@@ -60,18 +60,27 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     {
         if User.shared.parties.count == 0
         {
-            partiesTableView.isHidden = true
-            self.navigationItem.leftBarButtonItem = nil
             self.hideSearchBar()
+            self.hideTableView()
         }
         else
         {
-            partiesTableView.isHidden = false
-            self.partiesTableView.reloadData()
-            let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar(_:)))
-            searchItem.tag = 0
-            self.navigationItem.leftBarButtonItem = searchItem
+            self.showTableView()
         }
+    }
+    
+    private func hideTableView()
+    {
+        partiesTableView.isHidden = true
+        self.navigationItem.leftBarButtonItem = nil
+    }
+    
+    private func showTableView()
+    {
+        partiesTableView.isHidden = false
+        self.partiesTableView.reloadData()
+        let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar(_:)))
+        self.navigationItem.leftBarButtonItem = searchItem
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
@@ -136,7 +145,11 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         {
             User.shared.parties.remove(at: resultIndexes[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
-            refreshView()
+            if User.shared.parties.isEmpty
+            {
+                self.hideTableView()
+                self.hideSearchBar()
+            }
         }
     }
     
@@ -188,7 +201,11 @@ class PartiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     private func showNavigationButtons()
     {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addParty(_:)))
-        refreshView()
+        if !User.shared.parties.isEmpty
+        {
+            let searchItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar(_:)))
+            self.navigationItem.leftBarButtonItem = searchItem
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
